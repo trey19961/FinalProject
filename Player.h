@@ -7,6 +7,7 @@ class Player
 {
 private:
 	int x, y;
+	bool changedRooms;
 	vector<Item> inventory;
 public:
 	Player(int xpos, int ypos, vector<Item> inv) 
@@ -14,12 +15,15 @@ public:
 		setX(xpos);
 		setY(ypos);
 		setInv(inv);
+		changedRooms = true;
 	}
 
 	int getX() { return x; }
 	int getY() { return y; }
 	vector<Item> getInv() { return inventory; }
+	bool getChangedRooms() { return changedRooms; }
 
+	void setChangedRooms(bool changed) { changedRooms = changed; }
 	void setX(int xpos) { x = xpos; }
 	void setY(int ypos) { y = ypos; }
 	void setInv(vector<Item> inv) { inventory = inv; }

@@ -10,14 +10,17 @@ class Room
 {
 private:
     string name, description;
+    int x, y;
     vector<Item> items;
 
 public:
-    Room(string n, string d, vector<Item> it)
+    Room(string n, string d, vector<Item> it, int xpos, int ypos)
     {
         setName(n);
         setDescription(d);
         setItems(it);
+        x = xpos;
+        y = ypos;
     }
 
     string getName() { return name; }
