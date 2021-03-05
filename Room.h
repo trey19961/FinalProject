@@ -10,27 +10,41 @@ class Room
 {
 private:
     string name, description;
-    int x, y;
+    int x, y, z;
     vector<Item> items;
 
 public:
-    Room(string n, string d, vector<Item> it, int xpos, int ypos)
+    Room() {}
+    ~Room() {}
+    Room(string n, string d, vector<Item> it, int xpos, int ypos, int zpos)
     {
         setName(n);
         setDescription(d);
         setItems(it);
         x = xpos;
         y = ypos;
+        z = zpos;
     }
 
     string getName() { return name; }
     string getDescription() { return description; }
     vector<Item> getItems() { return items; }
+    int getX() { return x; }
+    int getY() { return y; }
+    int getZ() { return z; }
 
     void setName(string n) { name = n; }
     void setDescription(string d) { description = d; }
     void setItems(vector<Item> it) { items = it; }
     void AddItem(Item add) { items.push_back(add); }
+
+    friend bool operator == (const Room x, const Room y)
+    {
+        if (x.x == y.x && x.y == y.y)
+            return true;
+        else
+            return false;
+    }
 
     string toString()
     {

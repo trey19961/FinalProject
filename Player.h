@@ -2,30 +2,32 @@
 
 #include <vector>
 #include "Item.h"
+#include "Room.h"
 
 class Player
 {
 private:
-	int x, y;
+	Room currentRoom;
 	bool changedRooms;
 	vector<Item> inventory;
 public:
-	Player(int xpos, int ypos, vector<Item> inv) 
+	~Player() {}
+	Player(Room location, vector<Item> inv) 
 	{
-		setX(xpos);
-		setY(ypos);
+		setCurrentRoom(location);
 		setInv(inv);
-		changedRooms = true;
 	}
 
-	int getX() { return x; }
-	int getY() { return y; }
+	Room getCurrentRoom() { return currentRoom; }
 	vector<Item> getInv() { return inventory; }
 	bool getChangedRooms() { return changedRooms; }
 
+	void setCurrentRoom(Room location)
+	{
+		currentRoom = location;
+		setChangedRooms(true);
+	}
 	void setChangedRooms(bool changed) { changedRooms = changed; }
-	void setX(int xpos) { x = xpos; }
-	void setY(int ypos) { y = ypos; }
 	void setInv(vector<Item> inv) { inventory = inv; }
 
 	void addItem(Item add) { inventory.push_back(add); }
