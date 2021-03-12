@@ -19,6 +19,11 @@ int acceptInput(int max)
 }
 
 int main() {
+	Player player1;
+	cout << player.getWeapon() ->getName() << "\t" << player.getWeapon() << endl;
+	player.setWeapon(new Cross_Bow)());
+	
+	
 	Item laptop("Laptop", "An old, beat-up laptop computer.", 1);
 	Item flashdrive("Flash Drive", "A 64 GB flashdrive with a label that says 'KEY'", 2);
 	Item hdmiCable("HDMI Cable", "A 6-foot long HDMI cable.", 3);
@@ -64,4 +69,5 @@ int main() {
 		cout << endl;
 
 	}
+	Weapons
 }
