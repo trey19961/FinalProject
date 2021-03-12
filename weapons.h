@@ -9,21 +9,25 @@ using namespace std;
 
 class Weapon
 {
-private: 
+ private:
        string name;
        vector<Item> inventory;
-public:
+    public:
+        Weapon() = default;
+        virtual ~Weapon() = default;
 
-      Weapon() :
-      Weapon(int t);
-      int type;
-      int attack;
-      };
-      
-    Weapon Wep(1);
-    
-    Weapon::Weapon(int t){
-    type = t;
-    if(type==1)
-    attack = 20;
-    }
+        virtual void SetWeaponName(std::string weapName){ weaponName = weapName; }
+        std::string ReturnWeaponName() const { return weaponName; }
+
+        virtual void SetWeaponDamage(float weapDamage){ weaponDamage = weapDamage; }
+        float ReturnWeaponDamage() const { return weaponDamage; }
+
+    private:
+        std::string weaponName = "Default_Weapon";
+        float weaponDamage = 0;
+};
+
+class Cross_Bow : public Weapon
+{
+
+};
